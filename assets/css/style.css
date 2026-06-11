@@ -507,8 +507,8 @@
 .mndev-popup-modal {
     background: #fff;
     border-radius: 12px;
-    width: 90%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 1000px;
     max-height: 85vh;
     display: flex;
     flex-direction: column;
@@ -609,10 +609,74 @@
     gap: 3px;
 }
 
-#mndev-popup-edit {
+#mndev-popup-edit,
+#mndev-popup-save,
+#mndev-popup-cancel {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
+    line-height: 1;
+}
+
+#mndev-popup-edit .dashicons,
+#mndev-popup-save .dashicons,
+#mndev-popup-cancel .dashicons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    margin: 0;
+}
+
+#mndev-popup-save,
+#mndev-popup-cancel {
+    display: none;
+}
+
+.mndev-popup-title-input {
+    display: none;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 1.2em;
+    border: 2px solid #0073aa;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+    background: #fff;
+    color: #23282d;
+    margin-right: 15px;
+}
+
+.mndev-popup-content-edit {
+    display: none;
+    padding: 30px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.mndev-popup-content-edit textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.8;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+    background: #fff;
+}
+
+.mndev-popup-content-edit textarea:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
 }
 
 .mndev-note-title {

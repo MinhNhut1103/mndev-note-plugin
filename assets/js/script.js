@@ -75,19 +75,72 @@ jQuery(document).ready(function($) {
     // Edit from popup
     $('#mndev-popup-edit').on('click', function() {
         const $overlay = $('#mndev-popup-overlay');
-        const noteId = $overlay.data('note-id');
-        if (!noteId) return;
-        
-        const $note = $(`.mndev-note[data-id="${noteId}"]`);
-        if (!$note.length) return;
-        
-        const title = $note.find('.mndev-note-title').text();
-        const content = $note.find('.mndev-note-content').html();
+        const title = $overlay.find('.mndev-popup-title').text();
+        const content = $overlay.find('.mndev-popup-content').html();
         const tempDiv = $('<div>').html(content);
         const textContent = tempDiv.text();
         
-        closeNotePopup();
-        enterEditMode(noteId, title, textContent);
+        $overlay.find('.mndev-popup-title-input').val(title).show();
+        $overlay.find('.mndev-popup-title').hide();
+        $overlay.find('.mndev-popup-content').hide();
+        $overlay.find('.mndev-popup-content-edit textarea').val(textContent);
+        $overlay.find('.mndev-popup-content-edit').show();
+        $overlay.find('#mndev-popup-edit').hide();
+        $overlay.find('#mndev-popup-save, #mndev-popup-cancel').show();
+        $overlay.find('.mndev-popup-footer-left').hide();
+    });
+    
+    // Save from popup
+    $('#mndev-popup-save').on('click', function() {
+        const $overlay = $('#mndev-popup-overlay');
+        const noteId = $overlay.data('note-id');
+        const title = $overlay.find('.mndev-popup-title-input').val().trim();
+        const content = $overlay.find('#mndev-popup-content-textarea').val().trim();
+        
+        if (!title || !content) {
+            alert('Title and content are required.');
+            return;
+        }
+        
+        const $btn = $(this).prop('disabled', true).html('<span class="spinner is-active"></span> Saving...');
+        
+        $.ajax({
+            url: mndev_ajax.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'mndev_update_note',
+                id: noteId,
+                title: title,
+                content: content,
+                nonce: mndev_ajax.nonce
+            },
+            success: function(response) {
+                if (response.success) {
+                    // Reload notes list
+                    loadNotes();
+                    // Reopen popup with updated data
+                    closeNotePopup();
+                    showNotice(mndev_ajax.strings.note_updated, 'success');
+                } else {
+                    showError(response.data.message || 'Failed to save.');
+                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
+                }
+            },
+            error: function() {
+                showError('An error occurred while saving.');
+                $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
+            },
+            complete: function() {
+                if ($btn.prop('disabled')) {
+                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
+                }
+            }
+        });
+    });
+    
+    // Cancel from popup
+    $('#mndev-popup-cancel').on('click', function() {
+        disablePopupEdit();
     });
     
     // Delete note
@@ -329,6 +382,7 @@ jQuery(document).ready(function($) {
         const updatedAt = $note.find('.mndev-note-date:last').text().replace(/^Updated:\s*/i, '');
 
         const $overlay = $('#mndev-popup-overlay');
+        disablePopupEdit($overlay);
         $overlay.data('note-id', id);
         $overlay.find('.mndev-popup-title').text(title);
         $overlay.find('.mndev-popup-content').html(content);
@@ -339,8 +393,22 @@ jQuery(document).ready(function($) {
     }
 
     function closeNotePopup() {
-        $('#mndev-popup-overlay').removeClass('active');
+        const $overlay = $('#mndev-popup-overlay');
+        disablePopupEdit($overlay);
+        $overlay.removeClass('active');
         $('body').css('overflow', '');
+    }
+
+    function disablePopupEdit($overlay) {
+        $overlay = $overlay || $('#mndev-popup-overlay');
+        $overlay.find('.mndev-popup-title').show();
+        $overlay.find('.mndev-popup-title-input').hide().val('');
+        $overlay.find('.mndev-popup-content').show();
+        $overlay.find('.mndev-popup-content-edit').hide();
+        $overlay.find('.mndev-popup-content-edit textarea').val('');
+        $overlay.find('#mndev-popup-edit').show();
+        $overlay.find('#mndev-popup-save, #mndev-popup-cancel').hide();
+        $overlay.find('.mndev-popup-footer-left').show();
     }
 
     function escapeHtml(text) {
@@ -404,15 +472,23 @@ jQuery(document).ready(function($) {
         // Ctrl/Cmd + S to save
         if ((e.ctrlKey || e.metaKey) && e.key === 's') {
             e.preventDefault();
-            if ($titleInput.val().trim() && $contentInput.val().trim()) {
+            const $overlay = $('#mndev-popup-overlay');
+            if ($overlay.hasClass('active') && $overlay.find('#mndev-popup-save').is(':visible')) {
+                $('#mndev-popup-save').click();
+            } else if ($titleInput.val().trim() && $contentInput.val().trim()) {
                 $addNoteForm.submit();
             }
         }
         
-        // Escape to cancel edit or close popup
+        // Escape to cancel popup edit, close popup, or cancel sidebar edit
         if (e.key === 'Escape') {
-            if ($('#mndev-popup-overlay').hasClass('active')) {
-                closeNotePopup();
+            const $overlay = $('#mndev-popup-overlay');
+            if ($overlay.hasClass('active')) {
+                if ($overlay.find('#mndev-popup-save').is(':visible')) {
+                    disablePopupEdit($overlay);
+                } else {
+                    closeNotePopup();
+                }
             } else if (editingNoteId) {
                 resetForm();
             }

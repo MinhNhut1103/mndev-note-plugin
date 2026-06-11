@@ -107,11 +107,15 @@
     <div class="mndev-popup-modal">
         <div class="mndev-popup-header">
             <h2 class="mndev-popup-title"></h2>
+            <input type="text" class="mndev-popup-title-input" id="mndev-popup-title-input">
             <button class="mndev-popup-close" id="mndev-popup-close">
                 <span class="dashicons dashicons-no-alt"></span>
             </button>
         </div>
         <div class="mndev-popup-content"></div>
+        <div class="mndev-popup-content-edit">
+            <textarea id="mndev-popup-content-textarea"></textarea>
+        </div>
         <div class="mndev-popup-footer">
             <div class="mndev-popup-footer-left">
                 <span class="mndev-popup-date-created">
@@ -123,10 +127,20 @@
                     <strong><?php _e('Updated:', 'mndev-plugin'); ?></strong> <span class="popup-updated-at"></span>
                 </span>
             </div>
-            <button class="button button-primary" id="mndev-popup-edit">
-                <span class="dashicons dashicons-edit"></span>
-                <?php _e('Edit', 'mndev-plugin'); ?>
-            </button>
+            <div class="mndev-popup-footer-right">
+                <button class="button" id="mndev-popup-cancel">
+                    <span class="dashicons dashicons-no"></span>
+                    <?php _e('Cancel', 'mndev-plugin'); ?>
+                </button>
+                <button class="button button-primary" id="mndev-popup-save">
+                    <span class="dashicons dashicons-saved"></span>
+                    <?php _e('Save', 'mndev-plugin'); ?>
+                </button>
+                <button class="button button-primary" id="mndev-popup-edit">
+                    <span class="dashicons dashicons-edit"></span>
+                    <?php _e('Edit', 'mndev-plugin'); ?>
+                </button>
+            </div>
         </div>
     </div>
 </div>
