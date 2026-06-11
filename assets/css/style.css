@@ -613,11 +613,15 @@
 #mndev-popup-save,
 #mndev-popup-cancel {
     display: inline-flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    line-height: 1;
+    line-height: normal;
     white-space: nowrap;
+    height: auto;
+    min-height: 30px;
+    padding: 4px 12px;
 }
 
 #mndev-popup-edit .dashicons,
