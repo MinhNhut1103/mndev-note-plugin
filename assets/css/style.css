@@ -617,6 +617,7 @@
     justify-content: center;
     gap: 5px;
     line-height: 1;
+    white-space: nowrap;
 }
 
 #mndev-popup-edit .dashicons,

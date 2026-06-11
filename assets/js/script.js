@@ -50,9 +50,8 @@ jQuery(document).ready(function($) {
         const title = $note.find('.mndev-note-title').text();
         const content = $note.find('.mndev-note-content').html();
         
-        // Convert HTML content to text for editing
-        const tempDiv = $('<div>').html(content);
-        const textContent = tempDiv.text();
+        // Convert HTML content to text for editing, preserving line breaks
+        const textContent = htmlToText(content);
         
         enterEditMode(noteId, title, textContent);
     });
@@ -77,8 +76,7 @@ jQuery(document).ready(function($) {
         const $overlay = $('#mndev-popup-overlay');
         const title = $overlay.find('.mndev-popup-title').text();
         const content = $overlay.find('.mndev-popup-content').html();
-        const tempDiv = $('<div>').html(content);
-        const textContent = tempDiv.text();
+        const textContent = htmlToText(content);
         
         $overlay.find('.mndev-popup-title-input').val(title).show();
         $overlay.find('.mndev-popup-title').hide();
@@ -102,7 +100,7 @@ jQuery(document).ready(function($) {
             return;
         }
         
-        const $btn = $(this).prop('disabled', true).html('<span class="spinner is-active"></span> Saving...');
+        const $btn = $(this).prop('disabled', true).html('<span class="spinner is-active"></span> Đang lưu...');
         
         $.ajax({
             url: mndev_ajax.ajax_url,
@@ -123,16 +121,16 @@ jQuery(document).ready(function($) {
                     showNotice(mndev_ajax.strings.note_updated, 'success');
                 } else {
                     showError(response.data.message || 'Failed to save.');
-                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
+                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Lưu');
                 }
             },
             error: function() {
                 showError('An error occurred while saving.');
-                $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
+                $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Lưu');
             },
             complete: function() {
                 if ($btn.prop('disabled')) {
-                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
+                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Lưu');
                 }
             }
         });
@@ -415,6 +413,10 @@ jQuery(document).ready(function($) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    function htmlToText(html) {
+        return html.replace(/<br\s*\/?>/gi, '\n').replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, '').trim();
     }
     
     function formatDate(dateString) {

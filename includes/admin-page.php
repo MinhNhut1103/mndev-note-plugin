@@ -130,11 +130,11 @@
             <div class="mndev-popup-footer-right">
                 <button class="button" id="mndev-popup-cancel">
                     <span class="dashicons dashicons-no"></span>
-                    <?php _e('Cancel', 'mndev-plugin'); ?>
+                    <?php _e('Hủy', 'mndev-plugin'); ?>
                 </button>
                 <button class="button button-primary" id="mndev-popup-save">
                     <span class="dashicons dashicons-saved"></span>
-                    <?php _e('Save', 'mndev-plugin'); ?>
+                    <?php _e('Lưu', 'mndev-plugin'); ?>
                 </button>
                 <button class="button button-primary" id="mndev-popup-edit">
                     <span class="dashicons dashicons-edit"></span>
