@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
             return;
         }
         
-        const $btn = $(this).prop('disabled', true).html('<span class="spinner is-active"></span> Đang lưu...');
+        const $btn = $(this).prop('disabled', true).html('<span class="spinner is-active"></span> Saving...');
         
         $.ajax({
             url: mndev_ajax.ajax_url,
@@ -121,16 +121,16 @@ jQuery(document).ready(function($) {
                     showNotice(mndev_ajax.strings.note_updated, 'success');
                 } else {
                     showError(response.data.message || 'Failed to save.');
-                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Lưu');
+                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
                 }
             },
             error: function() {
                 showError('An error occurred while saving.');
-                $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Lưu');
+                $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
             },
             complete: function() {
                 if ($btn.prop('disabled')) {
-                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Lưu');
+                    $btn.prop('disabled', false).html('<span class="dashicons dashicons-saved"></span> Save');
                 }
             }
         });
