@@ -612,7 +612,7 @@
 #mndev-popup-edit,
 #mndev-popup-save,
 #mndev-popup-cancel {
-    display: inline-flex !important;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -623,6 +623,11 @@
     min-height: 36px;
     padding: 8px 20px;
     font-size: 14px;
+}
+
+#mndev-popup-save,
+#mndev-popup-cancel {
+    display: none;
 }
 
 #mndev-popup-edit .dashicons,
@@ -636,11 +641,6 @@
     font-size: 18px;
     margin: 0;
     flex-shrink: 0;
-}
-
-#mndev-popup-save,
-#mndev-popup-cancel {
-    display: none;
 }
 
 .mndev-popup-title-input {

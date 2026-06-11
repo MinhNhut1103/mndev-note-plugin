@@ -84,7 +84,7 @@ jQuery(document).ready(function($) {
         $overlay.find('.mndev-popup-content-edit textarea').val(textContent);
         $overlay.find('.mndev-popup-content-edit').show();
         $overlay.find('#mndev-popup-edit').hide();
-        $overlay.find('#mndev-popup-save, #mndev-popup-cancel').show();
+        $overlay.find('#mndev-popup-save, #mndev-popup-cancel').css('display', 'inline-flex');
         $overlay.find('.mndev-popup-footer-left').hide();
     });
     
@@ -404,7 +404,7 @@ jQuery(document).ready(function($) {
         $overlay.find('.mndev-popup-content').show();
         $overlay.find('.mndev-popup-content-edit').hide();
         $overlay.find('.mndev-popup-content-edit textarea').val('');
-        $overlay.find('#mndev-popup-edit').show();
+        $overlay.find('#mndev-popup-edit').css('display', 'inline-flex');
         $overlay.find('#mndev-popup-save, #mndev-popup-cancel').hide();
         $overlay.find('.mndev-popup-footer-left').show();
     }
