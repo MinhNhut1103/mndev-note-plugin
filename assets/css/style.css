@@ -612,16 +612,17 @@
 #mndev-popup-edit,
 #mndev-popup-save,
 #mndev-popup-cancel {
-    display: inline-flex;
+    display: inline-flex !important;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 8px;
     line-height: normal;
     white-space: nowrap;
     height: auto;
-    min-height: 30px;
-    padding: 4px 12px;
+    min-height: 36px;
+    padding: 8px 20px;
+    font-size: 14px;
 }
 
 #mndev-popup-edit .dashicons,
@@ -630,10 +631,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
-    font-size: 16px;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
     margin: 0;
+    flex-shrink: 0;
 }
 
 #mndev-popup-save,
