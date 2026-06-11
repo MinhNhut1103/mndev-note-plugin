@@ -1,0 +1,492 @@
+/* MNDEV Plugin Styles */
+.mndev-notes-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wp-heading-inline {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.mndev-plugin-info {
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.mndev-notes-wrapper .dashicons,
+.mndev-notes-wrapper .dashicons-before:before {
+    vertical-align: middle;
+}
+
+.mndev-notes-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.mndev-notes-sidebar {
+    flex: 0 0 350px;
+}
+
+.mndev-notes-main {
+    flex: 1;
+}
+
+/* Form Styles */
+.mndev-add-note-form {
+    background: linear-gradient(135deg, #fff, #f9f9f9);
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.mndev-add-note-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0073aa, #00a0d2, #0073aa);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.mndev-add-note-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: #23282d;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.form-group input[type="text"]:hover,
+.form-group textarea:hover {
+    border-color: #00a0d2;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+/* Notes Header */
+.mndev-notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.mndev-notes-header h2 {
+    margin: 0;
+    font-size: 1.3em;
+    color: #23282d;
+}
+
+.mndev-notes-actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Notes List */
+.mndev-notes-list {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    min-height: 400px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.mndev-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    font-style: italic;
+    color: #666;
+}
+
+.mndev-loading .spinner {
+    margin-right: 10px;
+}
+
+/* Note Item */
+.mndev-note {
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mndev-note:last-child {
+    margin-bottom: 0;
+}
+
+.mndev-note:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #0073aa;
+}
+
+.mndev-note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.mndev-note-title {
+    margin: 0;
+    font-size: 1.2em;
+    color: #23282d;
+    flex: 1;
+    word-wrap: break-word;
+}
+
+.mndev-note-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.mndev-note-actions .button {
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mndev-note-actions .button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.mndev-note-actions .button:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.mndev-note-content {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #32373c;
+    word-wrap: break-word;
+}
+
+.mndev-note-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.mndev-note-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Empty State */
+.mndev-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.mndev-empty-icon {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.mndev-empty-state h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3em;
+    color: #23282d;
+}
+
+.mndev-empty-state p {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Button Styles */
+.button-primary {
+    background: linear-gradient(135deg, #0073aa, #005a87);
+    border-color: #0073aa;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.button-primary:hover::before {
+    left: 100%;
+}
+
+.button-primary:hover {
+    background: linear-gradient(135deg, #005a87, #0073aa);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 115, 170, 0.4);
+}
+
+.button.edit-note {
+    background: linear-gradient(135deg, #f0f0f1, #e1e1e1);
+    border-color: #f0f0f1;
+    color: #2c3338;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.button.edit-note:hover {
+    background: linear-gradient(135deg, #dcdcde, #c7c8ca);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.button.delete-note {
+    background: linear-gradient(135deg, #fef7f7, #fde8e8);
+    border-color: #fef7f7;
+    color: #d63638;
+    box-shadow: 0 1px 3px rgba(214, 54, 56, 0.1);
+}
+
+.button.delete-note:hover {
+    background: linear-gradient(135deg, #ffabaf, #f88a8e);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(214, 54, 56, 0.2);
+    color: #b32d2e;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mndev-note {
+    animation: fadeIn 0.5s ease;
+}
+
+.mndev-note:nth-child(odd) {
+    animation: slideIn 0.5s ease;
+}
+
+.mndev-note:nth-child(even) {
+    animation: fadeIn 0.5s ease 0.1s both;
+}
+
+/* Add stagger effect for multiple notes */
+.mndev-note:nth-child(1) { animation-delay: 0.05s; }
+.mndev-note:nth-child(2) { animation-delay: 0.1s; }
+.mndev-note:nth-child(3) { animation-delay: 0.15s; }
+.mndev-note:nth-child(4) { animation-delay: 0.2s; }
+.mndev-note:nth-child(5) { animation-delay: 0.25s; }
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .mndev-notes-container {
+        flex-direction: column;
+    }
+    
+    .mndev-notes-sidebar {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mndev-note-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .mndev-note-actions {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+    
+    .mndev-note-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .mndev-notes-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+/* Success/Error Messages */
+.mndev-notice {
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    border-left: 4px solid;
+    animation: fadeIn 0.3s ease;
+}
+
+.mndev-notice.success {
+    background-color: #f0f8f0;
+    border-left-color: #46b450;
+    color: #46b450;
+}
+
+.mndev-notice.error {
+    background-color: #fef7f7;
+    border-left-color: #d63638;
+    color: #d63638;
+}
+
+/* Edit Mode */
+.mndev-note.editing {
+    background-color: #f0f6fc;
+    border-left: 4px solid #0073aa;
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 115, 170, 0.15);
+}
+
+/* Updated Note Highlight */
+.mndev-note.updated-highlight {
+    background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+    border-color: #0073aa;
+    animation: pulse 2s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 115, 170, 0.1);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(0, 115, 170, 0.2);
+    }
+}
+
+/* Deleting Animation */
+.mndev-note.deleting {
+    animation: slideOut 0.3s ease-in-out;
+    opacity: 0.7;
+    transform: translateX(20px);
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+/* Spinner */
+.spinner {
+    background: url(../../../wp-admin/images/spinner.gif) no-repeat;
+    background-size: 20px 20px;
+    display: inline-block;
+    visibility: hidden;
+    opacity: 0.7;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.spinner.is-active {
+    visibility: visible;
+}
