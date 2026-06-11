@@ -485,6 +485,130 @@
     }
 }
 
+/* Note Popup Modal */
+.mndev-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease;
+}
+
+.mndev-popup-overlay.active {
+    display: flex;
+}
+
+.mndev-popup-modal {
+    background: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+.mndev-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e1e1e1;
+    background: #f9f9f9;
+}
+
+.mndev-popup-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #23282d;
+    flex: 1;
+    word-wrap: break-word;
+    padding-right: 15px;
+}
+
+.mndev-popup-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #666;
+    flex-shrink: 0;
+}
+
+.mndev-popup-close:hover {
+    background: #e1e1e1;
+    color: #23282d;
+}
+
+.mndev-popup-close .dashicons {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mndev-popup-content {
+    padding: 30px;
+    overflow-y: auto;
+    line-height: 1.8;
+    font-size: 15px;
+    color: #32373c;
+    flex: 1;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.mndev-popup-footer {
+    display: flex;
+    gap: 25px;
+    padding: 15px 30px;
+    border-top: 1px solid #e1e1e1;
+    background: #f9f9f9;
+    font-size: 13px;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.mndev-popup-footer .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    margin-right: 3px;
+}
+
+.mndev-popup-date-created,
+.mndev-popup-date-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.mndev-note-title {
+    cursor: pointer;
+}
+
+.mndev-note-title:hover {
+    color: #0073aa;
+}
+
 /* Spinner */
 .spinner {
     background: url(../../../wp-admin/images/spinner.gif) no-repeat;

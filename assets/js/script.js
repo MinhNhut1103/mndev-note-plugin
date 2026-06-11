@@ -57,6 +57,21 @@ jQuery(document).ready(function($) {
         enterEditMode(noteId, title, textContent);
     });
     
+    // Open note popup
+    $notesList.on('click', '.mndev-note-title, .mndev-note-content', function() {
+        const $note = $(this).closest('.mndev-note');
+        const noteId = $note.data('id');
+        openNotePopup(noteId);
+    });
+    
+    // Close popup
+    $('#mndev-popup-close').on('click', closeNotePopup);
+    $('#mndev-popup-overlay').on('click', function(e) {
+        if ($(e.target).is('#mndev-popup-overlay')) {
+            closeNotePopup();
+        }
+    });
+    
     // Delete note
     $notesList.on('click', '.delete-note', function() {
         const noteId = $(this).data('id');
@@ -286,6 +301,29 @@ jQuery(document).ready(function($) {
         showNotice(message, 'error');
     }
     
+    function openNotePopup(id) {
+        const $note = $(`.mndev-note[data-id="${id}"]`);
+        if (!$note.length) return;
+
+        const title = $note.find('.mndev-note-title').text();
+        const content = $note.find('.mndev-note-content').html();
+        const createdAt = $note.find('.mndev-note-date:first').text().replace(/^Created:\s*/i, '');
+        const updatedAt = $note.find('.mndev-note-date:last').text().replace(/^Updated:\s*/i, '');
+
+        const $overlay = $('#mndev-popup-overlay');
+        $overlay.find('.mndev-popup-title').text(title);
+        $overlay.find('.mndev-popup-content').html(content);
+        $overlay.find('.popup-created-at').text(createdAt.trim());
+        $overlay.find('.popup-updated-at').text(updatedAt.trim());
+        $overlay.addClass('active');
+        $('body').css('overflow', 'hidden');
+    }
+
+    function closeNotePopup() {
+        $('#mndev-popup-overlay').removeClass('active');
+        $('body').css('overflow', '');
+    }
+
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
@@ -352,9 +390,13 @@ jQuery(document).ready(function($) {
             }
         }
         
-        // Escape to cancel edit
-        if (e.key === 'Escape' && editingNoteId) {
-            resetForm();
+        // Escape to cancel edit or close popup
+        if (e.key === 'Escape') {
+            if ($('#mndev-popup-overlay').hasClass('active')) {
+                closeNotePopup();
+            } else if (editingNoteId) {
+                resetForm();
+            }
         }
     });
 });

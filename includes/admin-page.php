@@ -101,3 +101,26 @@
         <p><?php _e('Start by adding your first note using the form on the left.', 'mndev-plugin'); ?></p>
     </div>
 </script>
+
+<!-- Note Popup Modal -->
+<div class="mndev-popup-overlay" id="mndev-popup-overlay">
+    <div class="mndev-popup-modal">
+        <div class="mndev-popup-header">
+            <h2 class="mndev-popup-title"></h2>
+            <button class="mndev-popup-close" id="mndev-popup-close">
+                <span class="dashicons dashicons-no-alt"></span>
+            </button>
+        </div>
+        <div class="mndev-popup-content"></div>
+        <div class="mndev-popup-footer">
+            <span class="mndev-popup-date-created">
+                <span class="dashicons dashicons-calendar"></span>
+                <strong><?php _e('Created:', 'mndev-plugin'); ?></strong> <span class="popup-created-at"></span>
+            </span>
+            <span class="mndev-popup-date-updated">
+                <span class="dashicons dashicons-clock"></span>
+                <strong><?php _e('Updated:', 'mndev-plugin'); ?></strong> <span class="popup-updated-at"></span>
+            </span>
+        </div>
+    </div>
+</div>
