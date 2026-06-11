@@ -1,16 +1,16 @@
 <div class="wrap mndev-notes-wrapper">
     <h1 class="wp-heading-inline">
         <span class="dashicons dashicons-sticky" style="font-size: 30px; height: 30px; width: 30px; margin-right: 10px;"></span>
-        <?php _e('MNDEV Notes', 'mndev-plugin'); ?>
+        <?php _e('Mndev Notes', 'mndev-plugin'); ?>
     </h1>
     
     <div class="mndev-plugin-info" style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border-left: 4px solid #0073aa;">
         <p>
             <strong><?php _e('Author:', 'mndev-plugin'); ?></strong> Minh Nhựt |
-            <strong><?php _e('Website:', 'mndev-plugin'); ?></strong> <a href="https://dominhnhut.com/" target="_blank" rel="noopener noreferrer">MNDEV dominhnhut.com</a>
+            <strong><?php _e('Website:', 'mndev-plugin'); ?></strong> <a href="https://dominhnhut.com/" target="_blank" rel="noopener noreferrer">Mndev dominhnhut.com</a>
         </p>
         <p style="margin-top: 10px; font-style: italic; color: #666;">
-            <strong><?php _e('Note:', 'mndev-plugin'); ?></strong> <?php _e('Plugin này để note lại các thông tin code tính năng website MNDEV, cân nhắc kỹ trước khi xóa', 'mndev-plugin'); ?>
+            <strong><?php _e('Note:', 'mndev-plugin'); ?></strong> <?php _e('Plugin này để note lại các thông tin code tính năng website Mndev, cân nhắc kỹ trước khi xóa', 'mndev-plugin'); ?>
         </p>
     </div>
     

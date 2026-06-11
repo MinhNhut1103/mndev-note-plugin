@@ -1,4 +1,4 @@
-=== MNDEV Plugin ===
+=== Mndev Plugin ===
 Contributors: dominhnhut
 Tags: notes, backend, admin, management, code notes
 Requires at least: 5.0
@@ -7,11 +7,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Plugin để note lại các thông tin code tính năng website MNDEV, cân nhắc kỹ trước khi xóa
+Plugin để note lại các thông tin code tính năng website Mndev, cân nhắc kỹ trước khi xóa
 
 == Description ==
 
-MNDEV Plugin là một plugin quản lý ghi chú chuyên biệt cho website MNDEV. Plugin này cho phép bạn:
+Mndev Plugin là một plugin quản lý ghi chú chuyên biệt cho website Mndev. Plugin này cho phép bạn:
 
 * Tạo, chỉnh sửa và xóa ghi chú một cách dễ dàng
 * Lưu trữ thông tin về code đã viết, ý tưởng và các ghi chú quan trọng
@@ -34,11 +34,11 @@ Plugin này đặc biệt hữu ích cho các nhà phát triển WordPress muố
 
 1. Tải plugin lên thư mục `/wp-content/plugins/` hoặc cài đặt trực tiếp từ WordPress admin
 2. Kích hoạt plugin trong mục "Plugins" trong WordPress admin
-3. Truy cập "MNDEV Notes" trong menu admin để bắt đầu sử dụng
+3. Truy cập "Mndev Notes" trong menu admin để bắt đầu sử dụng
 
 == Screenshots ==
 
-1. Giao diện chính của MNDEV Plugin với form thêm ghi chú và danh sách ghi chú
+1. Giao diện chính của Mndev Plugin với form thêm ghi chú và danh sách ghi chú
 2. Form thêm/sửa ghi chú với các trường tiêu đề và nội dung
 3. Danh sách ghi chú với các tùy chọn chỉnh sửa và xóa
 
@@ -59,4 +59,4 @@ Plugin này đặc biệt hữu ích cho các nhà phát triển WordPress muố
 == Upgrade Notice ==
 
 = 1.0.0 =
-Phiên bản đầu tiên của MNDEV Plugin với đầy đủ tính năng quản lý ghi chú.
+Phiên bản đầu tiên của Mndev Plugin với đầy đủ tính năng quản lý ghi chú.

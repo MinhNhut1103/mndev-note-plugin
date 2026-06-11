@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: MNDEV Plugin - Code Notes
+ * Plugin Name: Mndev Plugin - Code Notes
  * Plugin URI: https://dominhnhut.com/
- * Description: Plugin to manage internal code notes and feature documentation for MNDEV website.
+ * Description: Plugin to manage internal code notes and feature documentation for Mndev website.
  * Version: 1.0.0
- * Author: MNDEV dominhnhut.com
+ * Author: Mndev dominhnhut.com
  * Author URI: https://dominhnhut.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,14 +18,14 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('MNDEV_PLUGIN_VERSION', '1.0.0');
-define('MNDEV_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('MNDEV_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('Mndev_PLUGIN_VERSION', '1.0.0');
+define('Mndev_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('Mndev_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 /**
  * Main plugin class
  */
-class MNDEVPlugin
+class MndevPlugin
 {
 
     /**
@@ -112,8 +112,8 @@ class MNDEVPlugin
     public function add_admin_menu()
     {
         add_menu_page(
-            __('MNDEV Notes', 'mndev-plugin'),
-            __('MNDEV Notes', 'mndev-plugin'),
+            __('Mndev Notes', 'mndev-plugin'),
+            __('Mndev Notes', 'mndev-plugin'),
             'manage_options',
             'mndev-notes',
             array($this, 'admin_page'),
@@ -131,8 +131,8 @@ class MNDEVPlugin
             return;
         }
 
-        wp_enqueue_style('mndev-plugin-style', MNDEV_PLUGIN_URL . 'assets/css/style.css', array(), MNDEV_PLUGIN_VERSION);
-        wp_enqueue_script('mndev-plugin-script', MNDEV_PLUGIN_URL . 'assets/js/script.js', array('jquery'), MNDEV_PLUGIN_VERSION, true);
+        wp_enqueue_style('mndev-plugin-style', Mndev_PLUGIN_URL . 'assets/css/style.css', array(), Mndev_PLUGIN_VERSION);
+        wp_enqueue_script('mndev-plugin-script', Mndev_PLUGIN_URL . 'assets/js/script.js', array('jquery'), Mndev_PLUGIN_VERSION, true);
 
         wp_localize_script('mndev-plugin-script', 'mndev_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
@@ -152,7 +152,7 @@ class MNDEVPlugin
      */
     public function admin_page()
     {
-        include_once MNDEV_PLUGIN_DIR . 'includes/admin-page.php';
+        include_once Mndev_PLUGIN_DIR . 'includes/admin-page.php';
     }
 
     /**
@@ -321,4 +321,4 @@ class MNDEVPlugin
 }
 
 // Initialize the plugin
-new MNDEVPlugin();
+new MndevPlugin();

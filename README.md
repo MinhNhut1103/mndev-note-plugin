@@ -1,4 +1,4 @@
-# MNDEV Plugin - Code Notes
+# Mndev Plugin - Code Notes
 
 **Plugin WordPress quản lý ghi chú code nội bộ** dành cho các nhà phát triển. Cho phép tạo, chỉnh sửa, xóa và quản lý các ghi chú về code, tính năng và tài liệu kỹ thuật trực tiếp từ WordPress admin.
 
@@ -52,7 +52,7 @@
 
 1. Tải plugin về thư mục `/wp-content/plugins/`
 2. Kích hoạt plugin trong mục **Plugins** của WordPress admin
-3. Truy cập **MNDEV Notes** trong menu admin để bắt đầu sử dụng
+3. Truy cập **Mndev Notes** trong menu admin để bắt đầu sử dụng
 
 ## Cách sử dụng
 
@@ -90,7 +90,7 @@ Khi kích hoạt, plugin tạo bảng `wp_mndev_notes` với cấu trúc:
 
 ## Tác giả
 
-- **Tác giả**: Minh Nhựt (MNDEV)
+- **Tác giả**: Minh Nhựt (Mndev)
 - **Website**: [https://dominhnhut.com/](https://dominhnhut.com/)
 - **GitHub**: [MinhNhut1103](https://github.com/MinhNhut1103)
 
