@@ -578,12 +578,20 @@
 
 .mndev-popup-footer {
     display: flex;
-    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
     padding: 15px 30px;
     border-top: 1px solid #e1e1e1;
     background: #f9f9f9;
     font-size: 13px;
     color: #666;
+    flex-wrap: wrap;
+}
+
+.mndev-popup-footer-left {
+    display: flex;
+    gap: 25px;
     flex-wrap: wrap;
 }
 
@@ -599,6 +607,12 @@
     display: inline-flex;
     align-items: center;
     gap: 3px;
+}
+
+#mndev-popup-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .mndev-note-title {

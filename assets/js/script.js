@@ -72,6 +72,24 @@ jQuery(document).ready(function($) {
         }
     });
     
+    // Edit from popup
+    $('#mndev-popup-edit').on('click', function() {
+        const $overlay = $('#mndev-popup-overlay');
+        const noteId = $overlay.data('note-id');
+        if (!noteId) return;
+        
+        const $note = $(`.mndev-note[data-id="${noteId}"]`);
+        if (!$note.length) return;
+        
+        const title = $note.find('.mndev-note-title').text();
+        const content = $note.find('.mndev-note-content').html();
+        const tempDiv = $('<div>').html(content);
+        const textContent = tempDiv.text();
+        
+        closeNotePopup();
+        enterEditMode(noteId, title, textContent);
+    });
+    
     // Delete note
     $notesList.on('click', '.delete-note', function() {
         const noteId = $(this).data('id');
@@ -311,6 +329,7 @@ jQuery(document).ready(function($) {
         const updatedAt = $note.find('.mndev-note-date:last').text().replace(/^Updated:\s*/i, '');
 
         const $overlay = $('#mndev-popup-overlay');
+        $overlay.data('note-id', id);
         $overlay.find('.mndev-popup-title').text(title);
         $overlay.find('.mndev-popup-content').html(content);
         $overlay.find('.popup-created-at').text(createdAt.trim());

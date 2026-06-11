@@ -113,14 +113,20 @@
         </div>
         <div class="mndev-popup-content"></div>
         <div class="mndev-popup-footer">
-            <span class="mndev-popup-date-created">
-                <span class="dashicons dashicons-calendar"></span>
-                <strong><?php _e('Created:', 'mndev-plugin'); ?></strong> <span class="popup-created-at"></span>
-            </span>
-            <span class="mndev-popup-date-updated">
-                <span class="dashicons dashicons-clock"></span>
-                <strong><?php _e('Updated:', 'mndev-plugin'); ?></strong> <span class="popup-updated-at"></span>
-            </span>
+            <div class="mndev-popup-footer-left">
+                <span class="mndev-popup-date-created">
+                    <span class="dashicons dashicons-calendar"></span>
+                    <strong><?php _e('Created:', 'mndev-plugin'); ?></strong> <span class="popup-created-at"></span>
+                </span>
+                <span class="mndev-popup-date-updated">
+                    <span class="dashicons dashicons-clock"></span>
+                    <strong><?php _e('Updated:', 'mndev-plugin'); ?></strong> <span class="popup-updated-at"></span>
+                </span>
+            </div>
+            <button class="button button-primary" id="mndev-popup-edit">
+                <span class="dashicons dashicons-edit"></span>
+                <?php _e('Edit', 'mndev-plugin'); ?>
+            </button>
         </div>
     </div>
 </div>
